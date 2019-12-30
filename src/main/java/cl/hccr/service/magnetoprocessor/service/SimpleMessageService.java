@@ -45,7 +45,7 @@ public class SimpleMessageService implements MessageService {
 
     @PostConstruct
     public void postConstruct(){
-        executor.schedule(() -> processMessages(), 100, TimeUnit.MILLISECONDS);
+        executor.scheduleAtFixedRate(()->processMessages(), 100,100, TimeUnit.MILLISECONDS);
     }
 
     @Override

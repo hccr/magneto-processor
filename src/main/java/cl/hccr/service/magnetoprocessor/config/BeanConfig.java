@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
+import software.amazon.awssdk.auth.credentials.InstanceProfileCredentialsProvider;
 import software.amazon.awssdk.auth.credentials.ProfileCredentialsProvider;
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.sqs.SqsClient;
@@ -16,8 +17,7 @@ public class BeanConfig {
 
         SqsClient client = SqsClient.builder()
                 .region(Region.US_EAST_1)
-                .credentialsProvider(ProfileCredentialsProvider.builder()
-                        .profileName("userMercadoLibre")
+                .credentialsProvider(InstanceProfileCredentialsProvider.builder()
                         .build())
                 .build();
         return client;
