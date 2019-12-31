@@ -12,7 +12,7 @@ Dentro del desarrollo del proyecto se consideraron supuestos, los cuales condici
 
 * Las secuencias de ADN vienen en un arreglo de String y se podrán convertir en una matriz de NxN. El no cumplir ese requerimiento arrojará una excepción `NotNxNDnaFormatException`.
 * Las secuencias de ADN solo podrán tener los caracteres `A,C,G,T`, si una secuencia contiene otro caracter se arrojará la excepción `NotAllowesCharException`
-* La secuencia de ADN al ser convertida en matríz NxN debe tener un tamaño mayor igual que 4x4 y menor o igual que 64x64, de lo contrario se arrojará la excepción `DnaSizeException`
+* La secuencia de ADN al ser convertida en matriz NxN debe tener un tamaño mayor igual que 4x4 y menor o igual que 64x64, de lo contrario se arrojará la excepción `DnaSizeException`
 
 ## Funcionamiento
 Magneto-Service es un API Rest que consta principalmente de 2 rutas `/mutant` y `/stats` las cuales detallo a continuación.
