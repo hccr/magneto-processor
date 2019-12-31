@@ -25,6 +25,7 @@ public class SimpleMutantRequestDAO implements MutantRequestDAO {
         String insertDnaRecord = "INSERT INTO dna (hash_index, dna, mutant ) VALUES ( :dnaHashCode , :dna , :mutant ) ;";
 
         if(isHashIndex(dnaHashCode)){
+            
             //Ya hay una cadena con el mismo hashcode
             //Verifico si ya esta esta cadena buscandola, si no, la inserto.
 
@@ -43,7 +44,9 @@ public class SimpleMutantRequestDAO implements MutantRequestDAO {
                 return false;
             }
         }else{
+
             //No hay una cadena con el mismo hashcode, se debe insertar el hashcode
+
             String insertHashIndexSql = "INSERT INTO hash_table (hash_index) VALUES ( :dnaHashCode ) ;";
             try{
                 int affectedIndexRows = namedParameterJdbcTemplate.update(insertHashIndexSql, new MapSqlParameterSource("dnaHashCode", dnaHashCode));

@@ -48,6 +48,15 @@ public class SimpleMessageService implements MessageService {
         executor.scheduleAtFixedRate(()->processMessages(), 100,100, TimeUnit.MILLISECONDS);
     }
 
+    /*
+
+    Este metodo es llamado cada 100ms para obtener como máximo 10 mensajes.
+    una vez recibido los mensajes se procesa en el ThreadPoolExecutor para darle asynconizidad
+    ThreadPoolExecutor tiene 10 hilos disponibles para realizar tareas, en caso de que los 10 hilos esten ocupados
+    las tareas quedaran almacenadas en una cola interna
+
+     */
+
     @Override
     public void processMessages() {
         ReceiveMessageRequest receiveMessageRequest = ReceiveMessageRequest.builder()
